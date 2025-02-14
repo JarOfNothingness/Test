@@ -159,9 +159,7 @@ h2 {
           <td colspan="2" class="text-center"><strong>JOSEPH S. SALAS</strong></td>
         </tr>
         <tr>
-          <td colspan="2" class="text-start"><strong>Designation</strong></td>
-          <td colspan="2" class="text-center">TAU Head</td>
-          <td colspan="2" class="text-center">Officer-in-Charge</td>
+        
         </tr>
   
     </table>
