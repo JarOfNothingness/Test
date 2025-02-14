@@ -87,7 +87,7 @@
                 <div class="collapse px-3 small mb-1" id="bookingLinks">
                     <ul class="nav nav-pills flex-column rounded border border-secondary">
                     <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="paymenthistoryrequest.php" class="booking-link">PR History</a>
+                    <a class="nav-link text-white" href="request_history.php" class="booking-link">PR History</a>
                     </li>
                     <li class="nav-item mb-2">
                     <a class="nav-link text-white" href="canva_form.php" class="booking-link">Canvas History</a>

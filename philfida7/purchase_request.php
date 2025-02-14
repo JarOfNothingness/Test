@@ -19,43 +19,114 @@ include("db.php");
       .table th:last-child {
         display: none !important; /* Hide the 'Actions' column */
       }
-
+      
       /* Ensure that footer content (Requested by, Approved by) is visible during printing */
       .footer-content {
         display: table-row !important;  /* Force footer content to be printed */
       }
     }
+
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.purchase-request {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+ 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table td {
+    height: 50px;
+}
+
+table tr td:nth-child(2), table tr td:nth-child(3), table tr td:nth-child(4), table tr td:nth-child(5), table tr td:nth-child(6) {
+    width: 15%;
+}
+
+.top-row {
+    text-align: center;
+    background-color:white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.label {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.content {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.bottom-row {
+    text-align: start;
+    background-color:white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px; /* Optional: Adjust the space below the heading */
+}
+
   </style>
 </head>
 <body>
 
-  <div class="container my-5">
-    <h2 class="text-center mb-4">PURCHASE REQUEST</h2>
-    <td class="text-start mt-4"><strong>Entity Name:</strong> PHILIPPINE FIBER INDUSTRY DEVELOPMENT AUTHORITY REGION VII <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="purchase-request">
+<table>
+<tr>
+                <td colspan="6" class="label"><h2>PURCHASE REQUEST </h2>Entity Name:  PHILIPPINE FIBER INDUSTRY DEVELOPMENT AUTHORITY REGION VII <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Fund Cluster:</strong></td>
-    <table class="table table-bordered mt-2">
-      <tr>
-        <td class="text-start"><strong>Office/Section:</strong></td>
-        <td class="text-start"><strong>PR No:</strong><br><strong>Responsibility Center Code:</strong></td>
-        <td class="text-start"><strong>Date:</strong></td>
-      </tr>
-    </table>
+
+    </td>
+                
+            </tr>
+            <tr>
+                <td colspan="1" class="label">Office/Section:</td>
+                <td colspan="4" class="label">PR No.: <br>Responsibility Center Code:</td>
+                <td colspan="2" class="label">Date:</td>
+            </tr>
+    
     
     <!-- Inventory Table -->
-    <table class="table table-bordered text-center">
-      <thead class="table-light">
-        <tr>
-          <th scope="col">Stock</th>
-          <th scope="col">Unit</th>
-          <th scope="col">Description</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Unit Cost</th>
-          <th scope="col">Total Cost</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
+    <tbody>
+                <tr>
+                    <th>Stock/Property No.</th>
+                    <th>Unit</th>
+                    <th>Item Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Cost</th>
+                    <th>Total Cost</th>
+                    
+                </tr>
+            </tbody>
       <tbody id="table-body">
         <tr>
           <td contenteditable="true"></td>
@@ -64,48 +135,43 @@ include("db.php");
           <td contenteditable="true" oninput="calculateTotalCost(this)"></td> <!-- Quantity cell -->
           <td contenteditable="true" oninput="calculateTotalCost(this)"></td> <!-- Unit Cost cell -->
           <td contenteditable="true"></td> <!-- Total Cost will be automatically calculated -->
-          <td><button class="btn btn-danger no-print" onclick="deleteRow(this)">Delete</button></td> <!-- Delete Button -->
         </tr>
       </tbody>
-    </table>
+
 
     <!-- Footer form, unchanged -->
-    <table class="table table-bordered footer-content">
-      <tr>
-        <td class="text-start"><strong>Purpose:</strong></td>
-      </tr>
+    <tr>
+                <td colspan="6" class="bottom-row">Purpose:</td>
+            </tr>
+            <tr>
+          <td colspan="2" class="text-center"><strong></strong></td>
+          <td colspan="2" class="text-center"><strong>Requested by:</strong></td>
+          <td colspan="2" class="text-center"><strong>Approved by:</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-start"><strong>Signature</strong></td>
+          <td colspan="2" class="text-center"><strong></strong></td>
+          <td colspan="2" class="text-center"><strong></strong></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-start"><strong>Printed Name</strong></td>
+          <td colspan="2" class="text-center"><strong>JOSE DARY C. LOCSIN</strong></td>
+          <td colspan="2" class="text-center"><strong>JOSEPH S. SALAS</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-start"><strong>Designation</strong></td>
+          <td colspan="2" class="text-center">TAU Head</td>
+          <td colspan="2" class="text-center">Officer-in-Charge</td>
+        </tr>
+  
     </table>
-
-    <table class="table table-bordered footer-content">
-      <tbody>
-        <tr>
-          <td class="text-center"><strong></strong></td>
-          <td class="text-center"><strong>Requested by:</strong></td>
-          <td class="text-center"><strong>Approved by:</strong></td>
-        </tr>
-        <tr>
-          <td class="text-start"><strong>Signature</strong></td>
-          <td class="text-center"><strong></strong></td>
-          <td class="text-center"><strong></strong></td>
-        </tr>
-        <tr>
-          <td class="text-start"><strong>Printed Name</strong></td>
-          <td class="text-center"><strong>JOSE DARY C. LOCSIN</strong></td>
-          <td class="text-center"><strong>JOSEPH S. SALAS</strong></td>
-        </tr>
-        <tr>
-          <td class="text-start"><strong>Designation</strong></td>
-          <td class="text-center">TAU Head</td>
-          <td class="text-center">Officer-in-Charge</td>
-        </tr>
-      </tbody>
-    </table>
-
+    </div>
     <!-- Buttons -->
     <a href="dashboard.php">
       <button class="btn btn-dark mt-4 no-print">Back</button>
     </a>
     <button class="btn btn-primary mt-4 no-print" id="add-row-btn">Add Row</button>
+    <button class="btn btn-danger mt-4 no-print" id="delete-row-btn">Delete Last Row</button> <!-- New Delete Row Button -->
     <button class="btn btn-success mt-4 no-print" id="save-btn">Save Data</button>
     <button class="btn btn-secondary mt-4 no-print" id="print-btn">Print</button> <!-- Print Button -->
   </div>
@@ -129,16 +195,16 @@ include("db.php");
         newRow.appendChild(newCell);
       }
 
-      // Add a delete button to the new row
-      var deleteCell = document.createElement('td');
-      var deleteButton = document.createElement('button');
-      deleteButton.classList.add('btn', 'btn-danger', 'no-print');
-      deleteButton.textContent = 'Delete';
-      deleteButton.setAttribute('onclick', 'deleteRow(this)');
-      deleteCell.appendChild(deleteButton);
-      newRow.appendChild(deleteCell);
-
       tableBody.appendChild(newRow);
+    });
+
+    // Function to delete the last row
+    document.getElementById('delete-row-btn').addEventListener('click', function() {
+      var tableBody = document.getElementById('table-body');
+      var rows = tableBody.querySelectorAll('tr');
+      if (rows.length > 0) {
+        tableBody.removeChild(rows[rows.length - 1]); // Remove the last row
+      }
     });
 
     // Function to calculate the Total Cost based on Quantity and Unit Cost
@@ -159,16 +225,7 @@ include("db.php");
         totalCostCell.textContent = ''; // Clear Total Cost if input is invalid
       }
     }
-
-    // Function to delete a row with confirmation
-    function deleteRow(button) {
-      var confirmDelete = confirm("Are you sure you want to delete this row?");
-      if (confirmDelete) {
-        var row = button.closest('tr');
-        row.remove();
-      }
-    }
-
+    
     // Function to save the data from the table
     document.getElementById('save-btn').addEventListener('click', function() {
       var tableRows = document.querySelectorAll('#table-body tr');
